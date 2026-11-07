@@ -1,56 +1,58 @@
 import { realEstatePrices } from "@/lib/content";
 
-export function Pricing() {
-  const prices = realEstatePrices;
+const rows = [
+  {
+    name: "Listing Photos",
+    detail: "Drone not included",
+    price: realEstatePrices.listingPhotos,
+  },
+  { name: "Drone Photos", price: realEstatePrices.drone },
+  { name: "Floor Plans", price: realEstatePrices.floorPlans },
+  { name: "Digital Staging", price: realEstatePrices.digitalStaging },
+] as const;
 
+export function Pricing() {
   return (
-    <section className="pricing" id="pricing" aria-labelledby="pricing-heading">
-      <div className="wrap price-layout">
+    <section className="band pricing" id="pricing" aria-labelledby="pricing-heading">
+      <div className="pricing-glow" aria-hidden="true" />
+      <div className="wrap price-layout reveal">
         <div className="price-intro">
-          <div className="eyebrow">02 / Real Estate Media pricing</div>
+          <p className="eyebrow">02 / Real Estate Media pricing</p>
           <h2 className="price-title" id="pricing-heading">
-            MAKE YOUR
+            Make your
             <br />
-            LISTING
+            listing
             <br />
-            STAND OUT.
+            stand out.
           </h2>
           <p>Choose the media you need for your next listing.</p>
           <a className="button" href="#contact">
             Let&apos;s plan your shoot
           </a>
         </div>
-        <div aria-label="Real estate media prices">
-          <div className="price-feature">
+        <div className="rate-card" aria-label="Real estate media prices">
+          <div className="rate-feature">
             <div>
               <h3>Listing Photo Package</h3>
               <p>Standard and drone photos</p>
             </div>
-            <strong>${prices.package}</strong>
+            <strong>${realEstatePrices.package}</strong>
           </div>
-          <div className="price-row">
-            <span>
-              Listing Photos
-              <small>Drone not included</small>
-            </span>
-            <strong>${prices.listingPhotos}</strong>
-          </div>
-          <div className="price-row">
-            <span>Drone Photos</span>
-            <strong>${prices.drone}</strong>
-          </div>
-          <div className="price-row">
-            <span>Floor Plans</span>
-            <strong>${prices.floorPlans}</strong>
-          </div>
-          <div className="price-row">
-            <span>Digital Staging</span>
-            <strong>${prices.digitalStaging}</strong>
-          </div>
-          <div className="price-row">
-            <span>Video Tour</span>
+          {rows.map((row) => (
+            <div className="rate-row" key={row.name}>
+              <span className="rate-name">
+                <span>
+                  {row.name}
+                  {"detail" in row ? <small>{row.detail}</small> : null}
+                </span>
+              </span>
+              <strong>${row.price}</strong>
+            </div>
+          ))}
+          <div className="rate-row">
+            <span className="rate-name">Video Tour</span>
             <strong>
-              <small>Starting at</small>${prices.videoTourFrom}
+              <small>Starting at</small>${realEstatePrices.videoTourFrom}
             </strong>
           </div>
           <p className="price-foot">

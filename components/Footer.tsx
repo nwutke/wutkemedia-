@@ -6,7 +6,9 @@ export function Footer() {
   return (
     <footer>
       <div className="wrap footer">
-        <BrandLink />
+        <div className="footer-brand">
+          <BrandLink />
+        </div>
         <small>{studio.copyright}</small>
         <div className="footer-links">
           <a href="#pricing">Pricing</a>

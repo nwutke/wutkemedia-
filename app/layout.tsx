@@ -1,10 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import { Newsreader } from "next/font/google";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/JsonLd";
 import { description } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: "italic",
+  weight: ["400", "500"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 const inter = localFont({
   src: [
@@ -66,13 +75,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf9f6",
+  themeColor: "#f7f4ee",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-CA" className={`${inter.variable} ${syncopate.variable}`}>
+    <html
+      lang="en-CA"
+      className={`${inter.variable} ${syncopate.variable} ${newsreader.variable}`}
+    >
       <body>
         <a className="skip-link" href="#main">
           Skip to content

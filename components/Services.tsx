@@ -3,37 +3,47 @@ import { services } from "@/lib/content";
 
 export function Services() {
   return (
-    <section className="wrap" id="services" aria-labelledby="services-heading">
-      <div className="section-top">
-        <div>
-          <div className="eyebrow">01 / What I do</div>
+    <section className="band services" id="services" aria-labelledby="services-heading">
+      <div className="wrap services-layout reveal">
+        <div className="services-intro">
+          <p className="eyebrow">01 / What I do</p>
           <h2 id="services-heading">
             Your ideas. Your brand.
             <br />
-            One creative partner.
+            <em>One creative partner.</em>
           </h2>
+          <p>
+            For small businesses, growing brands, independent professionals and
+            real estate agents. Let’s make something that feels like you.
+          </p>
         </div>
-        <p>
-          For small businesses, growing brands, independent professionals and
-          real estate agents. Let’s make something that feels like you.
-        </p>
-      </div>
-      <div className="services">
-        {services.map((service) => (
-          <article className="service" key={service.number}>
-            <span className="num">{service.number}</span>
-            <h3>
-              {service.lines.map((line, index) => (
-                <Fragment key={line}>
-                  {index > 0 ? <br /> : null}
-                  {line}
-                </Fragment>
-              ))}
-            </h3>
-            <p>{service.body}</p>
-            <a href={service.href}>{service.cta} ↗</a>
-          </article>
-        ))}
+        <ul className="service-list">
+          {services.map((service) => {
+            const [index, kicker] = service.number.split(" / ");
+            return (
+              <li key={service.number}>
+              <a className="service-row" href={service.href}>
+                <span className="num">
+                  {index}
+                  <small>{kicker}</small>
+                </span>
+                <span className="service-copy">
+                  <span className="service-title">
+                    {service.lines.map((line, lineIndex) => (
+                      <Fragment key={line}>
+                        {lineIndex > 0 ? " " : null}
+                        {line}
+                      </Fragment>
+                    ))}
+                  </span>
+                  <span className="service-body">{service.body}</span>
+                </span>
+                <span className="service-cta">{service.cta} ↗</span>
+              </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

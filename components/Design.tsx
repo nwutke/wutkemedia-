@@ -3,14 +3,14 @@ import { studio } from "@/lib/content";
 
 export function Design() {
   return (
-    <section className="design" aria-labelledby="design-heading">
-      <div className="wrap design-grid">
+    <section className="band design" id="design" aria-labelledby="design-heading">
+      <div className="wrap design-grid reveal">
         <div>
-          <div className="eyebrow">04 / Built around your business</div>
+          <p className="eyebrow">04 / Built around your business</p>
           <h2 id="design-heading">
             Web & graphic design
             <br />
-            for your business.
+            <em>for your business.</em>
           </h2>
           <p>
             From a first impression to a fully realised online presence.
@@ -29,7 +29,7 @@ export function Design() {
         <div className="site-card">
           <div className="site-browser">
             <div className="browser-top">
-              <span>● ● ●</span>
+              <span aria-hidden="true">● ● ●</span>
               <span>{studio.exampleSiteHost} ↗</span>
             </div>
             <div className="site-inside">
@@ -45,9 +45,7 @@ export function Design() {
           </div>
           <div className="site-caption">
             <span>WEB DESIGN / REAL ESTATE</span>
-            <ExternalLink href={studio.exampleSiteUrl}>
-              View live site ↗
-            </ExternalLink>
+            <ExternalLink href={studio.exampleSiteUrl}>View live site ↗</ExternalLink>
           </div>
           <p className="concept">
             Project title card — not a screenshot of the live site.
