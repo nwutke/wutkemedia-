@@ -1,0 +1,11 @@
+Inter
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+Licensed under the SIL Open Font License, Version 1.1. See Inter-OFL.txt.
+The woff2 files in this directory are a Latin subset of the Inter fonts
+shipped with the approved Wutke Media mockup.
+
+Syncopate
+Copyright (c) 2010 Brian J. Bonislawsky DBA Astigmatic (AOETI)
+Licensed under the Apache License, Version 2.0. See Apache-2.0.txt.
+Syncopate-Bold.woff2 is a Latin subset of the Syncopate font shipped
+with the approved mockup.
